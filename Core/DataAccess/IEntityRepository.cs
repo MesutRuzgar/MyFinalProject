@@ -1,10 +1,13 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace DataAccess.Abstract
+//isim uzayını uyarlamayı unutma
+//core katmanı diğer katmanları refarans almaz. Bağımsız olmalı
+//Katmanları core taşıyınca en baştaki using Entites.Abstract; sildik, bağımsızlaştırdık.
+namespace Core.DataAccess
 {
     //generic constraint
     //class:referans tip
