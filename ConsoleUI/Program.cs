@@ -10,7 +10,6 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             ProductTest();
-
             //CategoryTest();
 
         }
@@ -27,28 +26,23 @@ namespace ConsoleUI
 
         private static void ProductTest()
         {
-            Console.WriteLine("------------FIYAT ARALIGI-------------");
+            
             ProductManager productManager = new ProductManager(new EfProductDal());
-            foreach (var product in productManager.GetByUnitPrice(50, 100))
+            
+            var result = productManager.GetProductDetails();
+
+            if (result.Success)
             {
-                Console.WriteLine(product.ProductName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName+ " / "+product.CategoryName);
+                }
             }
-            Console.WriteLine("------------HEPSINI GETIR-------------");
-            foreach (var product in productManager.GetAll())
+            else
             {
-                Console.WriteLine(product.ProductName);
-            }
-            Console.WriteLine("------------KATEGORIYE GÖRE CAGIR-------------");
-            foreach (var product in productManager.GetAllByCategoryId(2))
-            {
-                Console.WriteLine(product.ProductName);
+                Console.WriteLine(result.Message);
             }
 
-            Console.WriteLine("------------DTO KATMANLI KATEGORIYE GÖRE CAGIR-------------");
-            foreach (var product in productManager.GetProductDetails())
-            {
-                Console.WriteLine(product.ProductName+ " / "+product.CategoryName);
-            }
         }
 
     }
