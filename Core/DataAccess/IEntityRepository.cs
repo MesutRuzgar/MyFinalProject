@@ -16,13 +16,13 @@ namespace Core.DataAccess
     //IEntity olabilir  veya IEntity implemente edenler olabilir.
     //IEntity yapmazsak herhangi bir referans tip koyabiliriz. Bunu engellemek için kullandık.
     //new() : new'lenebilir olmalı.
-   public interface IEntityRepository<T> where T:class,IEntity,new()
+    public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetAll(Expression<Func<T,bool>>filter=null);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);
-       
+
     }
 }

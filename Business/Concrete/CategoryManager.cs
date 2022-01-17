@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Business.Concrete
-{    
-        public class CategoryManager : ICategoryService
+{
+    public class CategoryManager : ICategoryService
     {
         ICategoryDal _categoryDal;
 
@@ -24,7 +24,7 @@ namespace Business.Concrete
 
         public Category GetById(int categoryId)
         {
-            return _categoryDal.Get(c=>c.CategoryId==categoryId);
+            return _categoryDal.Get(c => c.CategoryId == categoryId);
         }
     }
 }

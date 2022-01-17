@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Business.Abstract
 {
-   public interface ICategoryService
+    public interface ICategoryService
     {
         List<Category> GetAll();
         Category GetById(int categoryId);
